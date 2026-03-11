@@ -23,11 +23,8 @@ class Menu {
     }
 
     private void cargarCuentasPredeterminadas() {
-        // Dos cuentas de ahorro
         banco.agregarCuenta(new CuentaAhorro("1111111111", "Wilson Arley Ruiz Ruiz", 1200000));
         banco.agregarCuenta(new CuentaAhorro("2222222222", "Juan Jose Rosero Gonzalez", 950000));
-
-        // Dos cuentas corrientes
         banco.agregarCuenta(new CuentaCorriente("3333333333", "Cristian Ivan Dorado Perez", 800000));
         banco.agregarCuenta(new CuentaCorriente("4444444444", "George Estiven Campo Ordoñez", 500000));
 
@@ -37,7 +34,7 @@ class Menu {
     private void mostrarOpciones() {
         System.out.println("\n--- Menú ---");
         System.out.println("Cuentas disponibles:");
-        banco.mostrarCuentas(); // 👈 ahora muestra tipo, titular, número y saldo
+        banco.mostrarCuentas();
 
         System.out.println("\n1. Depositar");
         System.out.println("2. Retirar");
@@ -60,4 +57,3 @@ class Menu {
         }
     }
 }
-
