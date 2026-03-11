@@ -4,6 +4,9 @@ abstract class Cuenta {
     protected double saldo;
 
     public Cuenta(String numero, String titular, double saldoInicial) {
+        if (saldoInicial < 0) {
+            throw new IllegalArgumentException("El saldo inicial no puede ser negativo.");
+        }
         this.numero = numero;
         this.titular = titular;
         this.saldo = saldoInicial;
@@ -16,6 +19,10 @@ abstract class Cuenta {
     public abstract boolean retirar(double monto);
 
     public void depositar(double monto) {
+        if (monto <= 0) {
+            System.out.println("El monto a depositar debe ser positivo.");
+            return;
+        }
         saldo += monto;
     }
 }
