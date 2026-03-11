@@ -7,10 +7,15 @@ class CuentaCorriente extends Cuenta {
 
     @Override
     public boolean retirar(double monto) {
+        if (monto <= 0) {
+            System.out.println("El monto a retirar debe ser positivo.");
+            return false;
+        }
         if (monto <= saldo + LIMITE_SOBREGIRO) {
             saldo -= monto;
             return true;
         }
+        System.out.println("Fondos insuficientes incluso con sobregiro.");
         return false;
     }
 }

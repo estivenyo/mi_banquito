@@ -8,8 +8,12 @@ class Operaciones {
         if (cuenta != null) {
             System.out.print("Monto a depositar: ");
             double monto = sc.nextDouble();
+            if (monto <= 0) {
+                System.out.println("El monto debe ser positivo.");
+                return;
+            }
             cuenta.depositar(monto);
-            banco.registrarTransaccion(new Transaccion("T" + (banco.totalTransacciones()+1), "DEPOSITO", monto));
+            banco.registrarTransaccion(new Transaccion("T" + (banco.totalTransacciones() + 1), "DEPOSITO", monto));
             System.out.println("Depósito realizado.");
         } else {
             System.out.println("Cuenta no encontrada.");
@@ -24,10 +28,10 @@ class Operaciones {
             System.out.print("Monto a retirar: ");
             double monto = sc.nextDouble();
             if (cuenta.retirar(monto)) {
-                banco.registrarTransaccion(new Transaccion("T" + (banco.totalTransacciones()+1), "RETIRO", monto));
+                banco.registrarTransaccion(new Transaccion("T" + (banco.totalTransacciones() + 1), "RETIRO", monto));
                 System.out.println("Retiro realizado.");
             } else {
-                System.out.println("Fondos insuficientes.");
+                System.out.println("Fondos insuficientes o monto inválido.");
             }
         } else {
             System.out.println("Cuenta no encontrada.");
@@ -61,4 +65,3 @@ class Operaciones {
         }
     }
 }
-
