@@ -33,12 +33,11 @@ class Banco {
     public int totalTransacciones() { return transacciones.size(); }
 
     public void mostrarCuentas() {
-    cuentas.forEach(c -> {
-        String tipo = (c instanceof CuentaAhorro) ? "Cuenta de Ahorro" : "Cuenta Corriente";
-        System.out.println(tipo + " | Titular: " + c.getTitular() +
-                           " | Número: " + c.getNumero() +
-                           " | Saldo: " + c.getSaldo());
-    });
-}
-
+        cuentas.forEach(c -> {
+            String tipo = (c instanceof CuentaAhorro) ? "Cuenta de Ahorro" : "Cuenta Corriente";
+            System.out.println(tipo + " | Titular: " + c.getTitular() +
+                               " | Número: " + c.getNumero() +
+                               " | Saldo: " + c.getSaldo());
+        });
+    }
 }
