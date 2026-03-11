@@ -7,10 +7,16 @@ class Transaccion {
     private final Date fecha;
 
     public Transaccion(String id, String tipo, double monto) {
+        if (monto <= 0) {
+            throw new IllegalArgumentException("El monto de la transacción debe ser positivo.");
+        }
         this.id = id;
         this.tipo = tipo;
         this.monto = monto;
-        this.fecha = new Date();
+
+        Date hoy = new Date();
+        // Nunca permitir fechas futuras
+        this.fecha = hoy.after(new Date()) ? new Date() : hoy;
     }
 
     @Override
